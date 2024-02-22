@@ -1,0 +1,11 @@
+<div class="container">
+  @for(story of (allNews$ | async)?.hits; track story.story_id) {
+    <app-card [story]="story"></app-card>
+  }
+
+  <div class="pages">
+    @for(page of pages$ | async; track page) {
+      <button (click)="choosePage(page)">{{ page }}</button>
+    }
+  </div>
+</div>

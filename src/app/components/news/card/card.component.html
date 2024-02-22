@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="title">
+    <a [href]="story.url">{{ story.title }}</a>
+    <a [href]="story.url"> ({{ normalizeUrl(story.url) }})</a>
+  </div>
+
+  <div class="info">
+    <span>{{story.points}} points </span>
+    <span>by {{ story.author }}</span>
+    <span> {{ formatTimeAgo(story.created_at) }}</span>
+    <span> {{ story.num_comments }} comments</span>
+  </div>
+</div>
