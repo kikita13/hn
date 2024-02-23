@@ -1,13 +1,15 @@
-<div class="container">
-  <div class="title">
-    <a [href]="story.url">{{ story.title }}</a>
-    <a [href]="story.url"> ({{ normalizeUrl(story.url) }})</a>
+@if(story) {
+  <div class="container">
+    <div class="title">
+      <a [routerLink]="'/comments/' + story.story_id">{{ story.title }}</a>
+      <a [href]="story.url"> ({{ normalizeUrl(story.url) }})</a>
+    </div>
+  
+    <div class="info">
+      <span>{{story.points}} points </span>
+      <span class="link" [routerLink]="'/users/' + story.author">by {{ story.author }}</span>
+      <span> {{ formatTimeAgo(story.created_at) }}</span>
+      <span class="link" [routerLink]="'/comments/' + story.story_id"> {{ story.num_comments }} comments</span>
+    </div>
   </div>
-
-  <div class="info">
-    <span>{{story.points}} points </span>
-    <span>by {{ story.author }}</span>
-    <span> {{ formatTimeAgo(story.created_at) }}</span>
-    <span> {{ story.num_comments }} comments</span>
-  </div>
-</div>
+}

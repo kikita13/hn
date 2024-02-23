@@ -1,6 +1,6 @@
 import { HighlightResult } from './highlightResult';
 
-export interface Hit {
+export interface Story {
   _highlightResult: HighlightResult;
   _tags: string[];
   author: string;

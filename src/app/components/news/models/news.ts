@@ -1,11 +1,11 @@
 import { Exhaustive } from './exhaustive';
-import { Hit } from './hit';
+import { Story } from './hit';
 
 export interface News {
   exhaustive: Exhaustive;
   exhaustiveNbHits: boolean;
   exhaustiveTypo: boolean;
-  hits: Hit[];
+  hits: Story[];
   hitsPerPage: number;
   nbHits: number;
   nbPages: number;

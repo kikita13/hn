@@ -1,5 +1,4 @@
 import { NewsApiService } from './news-api.service';
-import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
 @Injectable({
@@ -10,5 +9,9 @@ export class NewsService {
 
   getNews(page: number) {
     return this.newsApiService.getNews(page);
+  }
+
+  getOne(id: string | number) {
+    return this.newsApiService.getOne(id);
   }
 }

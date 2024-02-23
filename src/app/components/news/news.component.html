@@ -1,6 +1,8 @@
 <div class="container">
-  @for(story of (allNews$ | async)?.hits; track story.story_id) {
-    <app-card [story]="story"></app-card>
+  @for(story of (allNews$ | async)?.hits; track story.story_id; let  i = $index) {
+    <span class="card">
+      {{i + 1}}. <app-card [story]="story"></app-card>
+    </span>
   }
 
   <div class="pages">

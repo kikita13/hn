@@ -1,1 +1,15 @@
-<p>comment works!</p>
+<div class="comment">
+  <div class="comment-info">
+    <span [routerLink]="'/users/' + comment.author">
+      {{ comment.author }}
+    </span>
+    <span>{{formatTimeAgo(comment.created_at)}}</span>
+  </div>
+  <p [innerHTML]="comment.comment_text"></p>
+  <div *ngIf="comment.childComments" class="child-comments">
+    <app-comment
+      *ngFor="let childComment of comment.childComments"
+      [comment]="childComment"
+    ></app-comment>
+  </div>
+</div>

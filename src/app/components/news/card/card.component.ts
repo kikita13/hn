@@ -1,20 +1,24 @@
-import { Component, Input } from '@angular/core';
-import { Hit } from '../models/hit';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Story } from '../models/hit';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLink],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.less'
+  styleUrl: './card.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class CardComponent {
-  @Input() story!: Hit;
+  @Input() story!: Story | null;
 
   normalizeUrl(url: string | undefined) {
-    if(!url) return
+    if(!url) return;
 
-    return url.replace('https://', '').split("/")[0]
+    return url.replace('https://', '').split("/")[0];
   }
 
   formatTimeAgo(dateString: string) {

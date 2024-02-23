@@ -1,0 +1,12 @@
+<div class="user">
+  <div class="user-name">
+    User name: {{ (user$ | async)?.username }}
+  </div>
+  @if((user$ | async)?.about) {
+    <div class="user-about" [innerHTML]="'About user: ' + (user$ | async)?.about"></div>
+  }
+
+  <div class="user-karma">
+    User karma: {{ (user$ | async)?.karma }}
+  </div>
+</div>
